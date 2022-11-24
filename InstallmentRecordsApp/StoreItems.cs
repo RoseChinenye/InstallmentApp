@@ -275,7 +275,7 @@ namespace InstallmentRecordsApp
 
         public void sixMonths()
         {
-            _percentage = (decimal)(30d / 100); //30% for monthly installment plan
+            _percentage = (decimal)(30d / 100); //30% for six months installment plan
             Console.WriteLine("You choosed six months installment plan!\n");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
@@ -311,7 +311,7 @@ namespace InstallmentRecordsApp
 
         public void yearly()
         {
-            _percentage = (decimal)(35d / 100); //35% for monthly installment plan
+            _percentage = (decimal)(35d / 100); //35% for yearly installment plan
             Console.WriteLine("You choosed one year installment plan!\n");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
