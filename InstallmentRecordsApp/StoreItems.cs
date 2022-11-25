@@ -121,22 +121,28 @@ namespace InstallmentRecordsApp
             switch (_installationPlan)
             {
                 case 1:
+                    Console.Clear();
                     daily();
 
                     break;
                 case 2:
+                    Console.Clear();
                     weekly();
                     break;
                 case 3:
+                    Console.Clear();
                     biWeekly();
                     break;
                 case 4:
+                    Console.Clear();
                     monthly();
                     break;
                 case 5:
+                    Console.Clear();
                     sixMonths();
                     break;
                 default:
+                    Console.Clear();
                     yearly();
                     break;
             }
