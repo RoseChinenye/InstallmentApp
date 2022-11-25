@@ -3,6 +3,8 @@ namespace InstallmentRecordsApp
 {
     public class StoreItems
     {
+        
+        
         private string buyerName;
         private double _itemNumber;
         private double _installationPlan;
@@ -11,7 +13,6 @@ namespace InstallmentRecordsApp
         private decimal _quantity;
         private decimal _totalAmount;
         private DateTime _date;
-        private DateTime _startDate;
         private decimal _payment;
          
         public StoreItems()
@@ -30,9 +31,14 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Enter the quantity: ");
             _quantity = Convert.ToInt32(Console.ReadLine());
 
+            
             Console.WriteLine("Enter your name: ");
             buyerName = Console.ReadLine();
-
+            if (buyerName == "")
+            {
+                throw new UnacceptedInputException("Name is Empty, please enter your name.\n");
+            }
+            
             Console.WriteLine("Noted!\n");
 
             switch (_itemNumber) 
@@ -141,7 +147,7 @@ namespace InstallmentRecordsApp
             Console.WriteLine();
 
             _payment = (_percentage * _totalAmount);
-            _startDate = _date.AddDays(1);
+           
 
 
             
@@ -153,8 +159,8 @@ namespace InstallmentRecordsApp
             for (decimal i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} will pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _startDate.ToLongDateString(), i);
-                _startDate = _startDate.AddDays(1);
+                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                _date = _date.AddDays(1);
             }
 
             Console.WriteLine();
@@ -179,7 +185,7 @@ namespace InstallmentRecordsApp
             Console.WriteLine();
 
             _payment = (_percentage * _totalAmount);
-            _startDate = _date.AddDays(1);
+            
 
 
             
@@ -191,8 +197,8 @@ namespace InstallmentRecordsApp
             for (decimal i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} will pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _startDate.ToLongDateString(), i);
-                _startDate = _startDate.AddDays(7);
+                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                _date = _date.AddDays(7);
             }
 
             Console.WriteLine();
@@ -215,7 +221,7 @@ namespace InstallmentRecordsApp
             Console.WriteLine();
 
             _payment = (_percentage * _totalAmount);
-            _startDate = _date.AddDays(1);
+            
 
 
 
@@ -227,8 +233,8 @@ namespace InstallmentRecordsApp
             for (decimal i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} will pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _startDate.ToLongDateString(), i);
-                _startDate = _startDate.AddDays(14);
+                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                _date = _date.AddDays(14);
             }
 
             Console.WriteLine();
@@ -251,7 +257,6 @@ namespace InstallmentRecordsApp
             Console.WriteLine();
 
             _payment = (_percentage * _totalAmount);
-            _startDate = _date.AddDays(1);
 
 
 
@@ -263,8 +268,8 @@ namespace InstallmentRecordsApp
             for (decimal i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} is expected to pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _startDate.ToLongDateString(), i);
-                _startDate = _startDate.AddMonths(1);
+                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                _date = _date.AddMonths(1);
             }
 
             Console.WriteLine();
@@ -287,7 +292,7 @@ namespace InstallmentRecordsApp
             Console.WriteLine();
 
             _payment = (_percentage * _totalAmount);
-            _startDate = _date.AddDays(1);
+           
 
 
 
@@ -299,8 +304,8 @@ namespace InstallmentRecordsApp
             for (decimal i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} is expected to pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _startDate.ToLongDateString(), i);
-                _startDate = _startDate.AddMonths(6);
+                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                _date = _date.AddMonths(6);
             }
 
             Console.WriteLine();
@@ -323,7 +328,6 @@ namespace InstallmentRecordsApp
             Console.WriteLine();
 
             _payment = (_percentage * _totalAmount);
-            _startDate = _date.AddDays(1);
 
 
 
@@ -335,8 +339,8 @@ namespace InstallmentRecordsApp
             for (decimal i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} is expected to pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _startDate.ToLongDateString(), i);
-                _startDate = _startDate.AddYears(1);
+                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                _date = _date.AddYears(1);
             }
 
             Console.WriteLine();
