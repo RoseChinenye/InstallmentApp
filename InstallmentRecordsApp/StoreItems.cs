@@ -14,6 +14,7 @@ namespace InstallmentRecordsApp
         private decimal _totalAmount;
         private DateTime _date;
         private decimal _payment;
+
          
         public StoreItems()
         {
@@ -103,6 +104,7 @@ namespace InstallmentRecordsApp
             catch (Exception e) 
             {
                 Console.WriteLine(e.Message);
+                AppStart();
             }
         }
 
@@ -150,6 +152,7 @@ namespace InstallmentRecordsApp
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                installmentPlans();
             }
         }
 
@@ -160,6 +163,7 @@ namespace InstallmentRecordsApp
             _percentage = (decimal)(1d / 100); //10% for daily installment plan
             Console.WriteLine("You choosed Daily installment plan!\n");
             Console.WriteLine("Press any key to continue...");
+             
             Console.ReadKey();
             Console.Clear();
             Console.WriteLine("You are expected to pay 10% of {0} daily.\n", _totalAmount);
@@ -169,9 +173,6 @@ namespace InstallmentRecordsApp
             Console.WriteLine();
 
             _payment = (_percentage * _totalAmount);
-           
-
-
             
             Console.WriteLine();
             Console.WriteLine(".......Track of Installment Records.......\n");
@@ -193,6 +194,7 @@ namespace InstallmentRecordsApp
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                daily();
             }
 
         }
@@ -215,8 +217,6 @@ namespace InstallmentRecordsApp
             _payment = (_percentage * _totalAmount);
             
 
-
-            
             Console.WriteLine();
             Console.WriteLine(".......Track of Installment Records.......\n");
 
@@ -235,6 +235,7 @@ namespace InstallmentRecordsApp
         catch (Exception e) 
         {
             Console.WriteLine(e.Message);
+            weekly();
         }
 
 }
@@ -256,8 +257,6 @@ namespace InstallmentRecordsApp
             _payment = (_percentage * _totalAmount);
             
 
-
-
             Console.WriteLine();
             Console.WriteLine(".......Track of Installment Records.......\n");
 
@@ -277,6 +276,7 @@ namespace InstallmentRecordsApp
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                biWeekly();
             }
         }
 
@@ -317,6 +317,7 @@ namespace InstallmentRecordsApp
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                monthly();
             }
         }
 
@@ -358,6 +359,7 @@ namespace InstallmentRecordsApp
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                sixMonths();
             }
         }
 
@@ -398,6 +400,7 @@ namespace InstallmentRecordsApp
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                yearly();
             }
         }
 
