@@ -188,12 +188,11 @@ namespace InstallmentRecordsApp
             for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} will pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                    " Total: #{3}\n ", buyerName, _payment, _date.ToLongDateString(), i);
                 _date = _date.AddDays(1);
             }
 
-            Console.WriteLine();
-            Console.WriteLine("Congratulations!!!! Payment Completed!");
+            Console.WriteLine("The End!");
                 
 
 
@@ -218,13 +217,12 @@ namespace InstallmentRecordsApp
             Console.WriteLine("You are expected to pay 6% of {0} weekly.\n", _totalAmount);
 
             _date = DateTime.Now;
-            Console.WriteLine("Installment payment will start on {0}\n", _date.ToLongDateString());
+            Console.WriteLine("Installment payment will start on {0}\n\n", _date.ToLongDateString());
             Console.WriteLine();
 
             _payment = (percent2 * _totalAmount);
             
 
-            Console.WriteLine();
             Console.WriteLine(".......Track of Installment Records.......\n");
 
             
@@ -232,11 +230,10 @@ namespace InstallmentRecordsApp
             for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} will pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                    " Total: #{3} \n", buyerName, _payment, _date.ToLongDateString(), i);
                 _date = _date.AddDays(7);
             }
 
-            Console.WriteLine();
             Console.WriteLine("Congratulations!!!! Payment Completed!");
         }
         catch (Exception e) 
@@ -258,13 +255,13 @@ namespace InstallmentRecordsApp
             Console.WriteLine("You are expected to pay 7% of {0} bi-weekly.\n", _totalAmount);
 
             _date = DateTime.Now;
-            Console.WriteLine("Installment payment will start on {0}\n", _date.ToLongDateString());
-            Console.WriteLine();
+            Console.WriteLine("Installment payment will start on {0}\n\n", _date.ToLongDateString());
+            
 
             _payment = (percent3 * _totalAmount);
             
 
-            Console.WriteLine();
+           
             Console.WriteLine(".......Track of Installment Records.......\n");
 
 
@@ -272,11 +269,10 @@ namespace InstallmentRecordsApp
             for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} will pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                    " Total: #{3} \n", buyerName, _payment, _date.ToLongDateString(), i);
                 _date = _date.AddDays(14);
             }
 
-            Console.WriteLine();
             Console.WriteLine("Congratulations!!!! Payment Completed!");
 
             }
@@ -298,14 +294,14 @@ namespace InstallmentRecordsApp
             Console.WriteLine("You are expected to pay 8% of {0} monthly.\n", _totalAmount);
 
             _date = DateTime.Now;
-            Console.WriteLine("Installment payment will start on {0}\n", _date.ToLongDateString());
-            Console.WriteLine();
+            Console.WriteLine("Installment payment will start on {0}\n\n", _date.ToLongDateString());
+            
 
             _payment = (percent4 * _totalAmount);
 
 
 
-            Console.WriteLine();
+            
             Console.WriteLine(".......Track of Installment Records.......\n");
 
 
@@ -313,11 +309,11 @@ namespace InstallmentRecordsApp
             for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} is expected to pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                    " Total: #{3} \n", buyerName, _payment, _date.ToLongDateString(), i);
                 _date = _date.AddMonths(1);
             }
 
-            Console.WriteLine();
+            
             Console.WriteLine("Congratulations!!!! Payment Completed!");
 
             }
@@ -339,15 +335,11 @@ namespace InstallmentRecordsApp
             Console.WriteLine("You are expected to pay 9% of {0} every six months.\n", _totalAmount);
 
             _date = DateTime.Now;
-            Console.WriteLine("Installment payment will start on {0}\n", _date.ToLongDateString());
-            Console.WriteLine();
+            Console.WriteLine("Installment payment will start on {0}\n\n", _date.ToLongDateString());
+            
 
             _payment = (percent5 * _totalAmount);
            
-
-
-
-            Console.WriteLine();
             Console.WriteLine(".......Track of Installment Records.......\n");
 
 
@@ -355,11 +347,11 @@ namespace InstallmentRecordsApp
             for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} is expected to pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                    " Total: #{3} \n", buyerName, _payment, _date.ToLongDateString(), i);
                 _date = _date.AddMonths(6);
             }
 
-            Console.WriteLine();
+           
             Console.WriteLine("Congratulations!!!! Payment Completed!");
 
             }
@@ -381,14 +373,14 @@ namespace InstallmentRecordsApp
             Console.WriteLine("You are expected to pay 10% of {0} yearly.\n", _totalAmount);
 
             _date = DateTime.Now;
-            Console.WriteLine("Installment payment will start on {0}\n", _date.ToLongDateString());
-            Console.WriteLine();
+            Console.WriteLine("Installment payment will start on {0}\n\n", _date.ToLongDateString());
+            
 
             _payment = (percent6 * _totalAmount);
 
 
 
-            Console.WriteLine();
+           
             Console.WriteLine(".......Track of Installment Records.......\n");
 
 
@@ -396,11 +388,11 @@ namespace InstallmentRecordsApp
             for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} is expected to pay #{1} on {2}," +
-                    " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
+                    " Total: #{3} \n", buyerName, _payment, _date.ToLongDateString(), i);
                 _date = _date.AddYears(1);
             }
 
-            Console.WriteLine();
+            
             Console.WriteLine("Congratulations!!!! Payment Completed!");
 
             }
