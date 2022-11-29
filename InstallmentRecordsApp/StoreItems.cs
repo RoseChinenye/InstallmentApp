@@ -8,14 +8,20 @@ namespace InstallmentRecordsApp
         private string buyerName;
         private double _itemNumber;
         private double _installationPlan;
-        private decimal _priceOfProduct;
-        private decimal _percentage;
-        private decimal _quantity;
-        private decimal _totalAmount;
+        private double _priceOfProduct;
+        private double _quantity;
+        private double _totalAmount;
         private DateTime _date;
-        private decimal _payment;
+        private double _payment;
 
-         
+        public const double percent1 = 0.1;
+        public const double percent2 = 0.15;
+        public const double percent3 = 0.2;
+        public const double percent4 = 0.25;
+        public const double percent5 = 0.3;
+        public const double percent6 = 0.35;
+
+
         public StoreItems()
         {
 
@@ -160,7 +166,7 @@ namespace InstallmentRecordsApp
         {
             try 
             { 
-            _percentage = (decimal)(1d / 100); //10% for daily installment plan
+            
             Console.WriteLine("You choosed Daily installment plan!\n");
             Console.WriteLine("Press any key to continue...");
              
@@ -172,14 +178,14 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
             Console.WriteLine();
 
-            _payment = (_percentage * _totalAmount);
+            _payment = (percent1 * _totalAmount);
             
             Console.WriteLine();
             Console.WriteLine(".......Track of Installment Records.......\n");
-
+               
             
 
-            for (decimal i = _payment; i <= _totalAmount; i += _payment)
+            for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} will pay #{1} on {2}," +
                     " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
@@ -188,6 +194,7 @@ namespace InstallmentRecordsApp
 
             Console.WriteLine();
             Console.WriteLine("Congratulations!!!! Payment Completed!");
+                
 
 
             }
@@ -203,7 +210,7 @@ namespace InstallmentRecordsApp
         {
             try
             { 
-            _percentage = (decimal)(15d / 100); //15% for weekly installment plan
+            
             Console.WriteLine("You choosed Weekly installment plan!\n");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
@@ -214,7 +221,7 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
             Console.WriteLine();
 
-            _payment = (_percentage * _totalAmount);
+            _payment = (percent2 * _totalAmount);
             
 
             Console.WriteLine();
@@ -222,7 +229,7 @@ namespace InstallmentRecordsApp
 
             
 
-            for (decimal i = _payment; i <= _totalAmount; i += _payment)
+            for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} will pay #{1} on {2}," +
                     " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
@@ -243,7 +250,7 @@ namespace InstallmentRecordsApp
         public void biWeekly()
         {
             try { 
-            _percentage = (decimal)(20d / 100); //20% for bi-weekly installment plan
+            
             Console.WriteLine("You choosed bi-weekly installment plan!\n");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
@@ -254,7 +261,7 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
             Console.WriteLine();
 
-            _payment = (_percentage * _totalAmount);
+            _payment = (percent3 * _totalAmount);
             
 
             Console.WriteLine();
@@ -262,7 +269,7 @@ namespace InstallmentRecordsApp
 
 
 
-            for (decimal i = _payment; i <= _totalAmount; i += _payment)
+            for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} will pay #{1} on {2}," +
                     " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
@@ -283,7 +290,7 @@ namespace InstallmentRecordsApp
         public void monthly()
         {
             try { 
-            _percentage = (decimal)(25d / 100); //25% for monthly installment plan
+            
             Console.WriteLine("You choosed monthly installment plan!\n");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
@@ -294,7 +301,7 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
             Console.WriteLine();
 
-            _payment = (_percentage * _totalAmount);
+            _payment = (percent4 * _totalAmount);
 
 
 
@@ -303,7 +310,7 @@ namespace InstallmentRecordsApp
 
 
 
-            for (decimal i = _payment; i <= _totalAmount; i += _payment)
+            for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} is expected to pay #{1} on {2}," +
                     " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
@@ -324,7 +331,7 @@ namespace InstallmentRecordsApp
         public void sixMonths()
         {
             try { 
-            _percentage = (decimal)(30d / 100); //30% for six months installment plan
+            
             Console.WriteLine("You choosed six months installment plan!\n");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
@@ -335,7 +342,7 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
             Console.WriteLine();
 
-            _payment = (_percentage * _totalAmount);
+            _payment = (percent5 * _totalAmount);
            
 
 
@@ -345,7 +352,7 @@ namespace InstallmentRecordsApp
 
 
 
-            for (decimal i = _payment; i <= _totalAmount; i += _payment)
+            for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} is expected to pay #{1} on {2}," +
                     " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
@@ -366,7 +373,7 @@ namespace InstallmentRecordsApp
         public void yearly()
         {
             try { 
-            _percentage = (decimal)(35d / 100); //35% for yearly installment plan
+            
             Console.WriteLine("You choosed one year installment plan!\n");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
@@ -377,7 +384,7 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
             Console.WriteLine();
 
-            _payment = (_percentage * _totalAmount);
+            _payment = (percent6 * _totalAmount);
 
 
 
@@ -386,7 +393,7 @@ namespace InstallmentRecordsApp
 
 
 
-            for (decimal i = _payment; i <= _totalAmount; i += _payment)
+            for (double i = _payment; i <= _totalAmount; i += _payment)
             {
                 Console.WriteLine("{0} is expected to pay #{1} on {2}," +
                     " Total: #{3} ", buyerName, _payment, _date.ToLongDateString(), i);
