@@ -1,13 +1,13 @@
 ﻿
 namespace InstallmentRecordsApp
 {
-    public class StoreItems
+    public class Store
     {
         
         private double _itemNumber, _quantity, _priceOfProduct;
         private double _installationPlan, _totalAmount, _payment;
         private DateTime _date;
-        private string buyerName;
+        private string? buyerName;
 
         public const double percent1 = 0.05,
             percent2 = 0.06,

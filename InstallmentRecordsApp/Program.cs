@@ -4,8 +4,8 @@
     {
         static void Main(string[] args)
         {
-            StoreItems storeItems = new StoreItems();
-            storeItems.AppStart();
+            Store store = new Store();
+            store.AppStart();
 
         }
     }
