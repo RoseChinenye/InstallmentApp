@@ -14,12 +14,12 @@ namespace InstallmentRecordsApp
         private DateTime _date;
         private double _payment;
 
-        public const double percent1 = 0.1;
-        public const double percent2 = 0.15;
-        public const double percent3 = 0.2;
-        public const double percent4 = 0.25;
-        public const double percent5 = 0.3;
-        public const double percent6 = 0.35;
+        public const double percent1 = 0.05;
+        public const double percent2 = 0.06;
+        public const double percent3 = 0.07;
+        public const double percent4 = 0.08;
+        public const double percent5 = 0.09;
+        public const double percent6 = 0.1;
 
 
         public StoreItems()
@@ -118,12 +118,12 @@ namespace InstallmentRecordsApp
         {
             try
             { 
-            Console.WriteLine(" 1. Daily ........... 10% payment.\n " +
-                "2. Weekly ........... 15% payment.\n " +
-                "3. Bi-Weekly ........... 20% payment.\n " +
-                "4. Monthly ........... 25% payment.\n " +
-                "5. 6-Months ........... 30% payment.\n " +
-                "6. One-Year ........... 35% payment.\n");
+            Console.WriteLine(" 1. Daily ........... 5% payment.\n " +
+                "2. Weekly ........... 6% payment.\n " +
+                "3. Bi-Weekly ........... 7% payment.\n " +
+                "4. Monthly ........... 8% payment.\n " +
+                "5. 6-Months ........... 9% payment.\n " +
+                "6. One-Year ........... 10% payment.\n");
             _installationPlan = Convert.ToInt32(Console.ReadLine());
 
             switch (_installationPlan)
@@ -172,10 +172,10 @@ namespace InstallmentRecordsApp
              
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("You are expected to pay 10% of {0} daily.\n", _totalAmount);
+            Console.WriteLine("You are expected to pay 5% of {0} daily.\n", _totalAmount);
 
             _date = DateTime.Now;
-            Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
+            Console.WriteLine("Installment payment will start on {0}\n", _date.ToLongDateString());
             Console.WriteLine();
 
             _payment = (percent1 * _totalAmount);
@@ -215,10 +215,10 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("You are expected to pay 15% of {0} weekly.\n", _totalAmount);
+            Console.WriteLine("You are expected to pay 6% of {0} weekly.\n", _totalAmount);
 
             _date = DateTime.Now;
-            Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
+            Console.WriteLine("Installment payment will start on {0}\n", _date.ToLongDateString());
             Console.WriteLine();
 
             _payment = (percent2 * _totalAmount);
@@ -255,10 +255,10 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("You are expected to pay 20% of {0} bi-weekly.\n", _totalAmount);
+            Console.WriteLine("You are expected to pay 7% of {0} bi-weekly.\n", _totalAmount);
 
             _date = DateTime.Now;
-            Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
+            Console.WriteLine("Installment payment will start on {0}\n", _date.ToLongDateString());
             Console.WriteLine();
 
             _payment = (percent3 * _totalAmount);
@@ -295,10 +295,10 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("You are expected to pay 25% of {0} monthly.\n", _totalAmount);
+            Console.WriteLine("You are expected to pay 8% of {0} monthly.\n", _totalAmount);
 
             _date = DateTime.Now;
-            Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
+            Console.WriteLine("Installment payment will start on {0}\n", _date.ToLongDateString());
             Console.WriteLine();
 
             _payment = (percent4 * _totalAmount);
@@ -336,10 +336,10 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("You are expected to pay 30% of {0} every six months.\n", _totalAmount);
+            Console.WriteLine("You are expected to pay 9% of {0} every six months.\n", _totalAmount);
 
             _date = DateTime.Now;
-            Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
+            Console.WriteLine("Installment payment will start on {0}\n", _date.ToLongDateString());
             Console.WriteLine();
 
             _payment = (percent5 * _totalAmount);
@@ -378,10 +378,10 @@ namespace InstallmentRecordsApp
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("You are expected to pay 35% of {0} yearly.\n", _totalAmount);
+            Console.WriteLine("You are expected to pay 10% of {0} yearly.\n", _totalAmount);
 
             _date = DateTime.Now;
-            Console.WriteLine("Installment payment will start on {0}\n", _date.AddDays(1).ToLongDateString());
+            Console.WriteLine("Installment payment will start on {0}\n", _date.ToLongDateString());
             Console.WriteLine();
 
             _payment = (percent6 * _totalAmount);
