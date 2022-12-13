@@ -1,13 +1,12 @@
-﻿namespace InstallmentRecordsApp
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Store store = new Store();
-            store.AppStart();
+﻿namespace InstallmentRecordsApp;
 
-        }
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        Store store = new Store();
+        store.AppStart();
+
     }
 }
 

@@ -1,383 +1,238 @@
 ﻿
-namespace InstallmentRecordsApp
+namespace InstallmentRecordsApp;
+
+public partial class Store
 {
-    public class Store
+    
+    private double _itemNumber, _quantity, _priceOfProduct;
+    private double _installationPlan, _totalAmount, _payment;
+    private DateTime _date;
+    private string? buyerName;
+
+    public const double percent1 = 0.05,
+        percent2 = 0.06,
+        percent3 = 0.07,
+        percent4 = 0.08,
+        percent5 = 0.09,
+        percent6 = 0.1;
+
+    
+    public void daily()
     {
-        
-        private double _itemNumber, _quantity, _priceOfProduct;
-        private double _installationPlan, _totalAmount, _payment;
-        private DateTime _date;
-        private string? buyerName;
-
-        public const double percent1 = 0.05,
-            percent2 = 0.06,
-            percent3 = 0.07,
-            percent4 = 0.08,
-            percent5 = 0.09,
-            percent6 = 0.1;
-
-
-        public void AppStart()
+        try
         {
-            try 
-            { 
-            Console.WriteLine("Welcome to Chy's Store!\nWe have the following items...\n");
-            Console.WriteLine(" 1. HP Laptop (#120,000)\n 2. iPhone  (#300,000)\n 3. Tablet  (#250,000)\n 4. SmartWatch  (#20,000)\n 5. None of these items\n ");
-            
-            Console.WriteLine("Enter the item number to choose an item to buy: ");
-            _itemNumber = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Enter the quantity: ");
-            _quantity = Convert.ToInt32(Console.ReadLine());
-            
+            Console.WriteLine("You choosed Daily installment plan!\n");
+            Console.WriteLine("Press any key to continue...");
 
-            Console.WriteLine("Enter your name: ");
-            buyerName = Console.ReadLine();
-            if (buyerName == "")
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine($"You are expected to pay 5% of {_totalAmount} daily.\n");
+
+
+            _date = DateTime.Now;
+            Console.WriteLine($"Installment payment will start on {_date.ToLongDateString()}\n\n");
+
+
+            _payment = (percent1 * _totalAmount);
+
+
+            Console.WriteLine(".......Track of Installment Records.......\n");
+
+
+            for (double i = _payment; i <= _totalAmount; i += _payment)
             {
-                throw new UnacceptedInputException("Name is Empty, please enter your name.\n");
+                Console.WriteLine($"{buyerName} will pay #{_payment} on {_date.ToLongDateString()}, Total: #{i}\n ");
+                _date = _date.AddDays(1);
             }
-            
-            Console.WriteLine("Noted!\n");
 
-            switch (_itemNumber) 
-            {
-                case 1:
-                    
-                    _priceOfProduct = 120000;
-                    _totalAmount = _priceOfProduct * _quantity;
-                    Console.WriteLine("Price of Product : #{0}\n", _priceOfProduct);
-                    Console.WriteLine("Quantity : {0}\n", _quantity);
-                    Console.WriteLine("Total Amount : #{0}\n ",_totalAmount);
-                    Console.WriteLine(" Choose an installment Plan of your Choice.\n Our installment plans are: ");
-                    
-                    installmentPlans();
-                    break;
-
-                case 2:
-                    
-                    _priceOfProduct = 300000;
-                    _totalAmount = _priceOfProduct * _quantity;
-                    Console.WriteLine("Price of Product : #{0}\n", _priceOfProduct);
-                    Console.WriteLine("Quantity : {0}\n", _quantity);
-                    Console.WriteLine("Total Amount : #{0}\n ", _totalAmount);
-                    Console.WriteLine(" Choose an installment Plan of your Choice.\n Our installment plans are: ");
-
-                    installmentPlans();
-                    break;
-
-                case 3:
-                    _priceOfProduct = 250000;
-                    _totalAmount = _priceOfProduct * _quantity;
-                    Console.WriteLine("Price of Product : #{0}\n", _priceOfProduct);
-                    Console.WriteLine("Quantity : {0}\n", _quantity);
-                    Console.WriteLine("Total Amount : #{0}\n ", _totalAmount);
-                    Console.WriteLine(" Choose an installment Plan of your Choice.\n Our installment plans are: ");
-
-                    installmentPlans();
-                    break;
-
-                case 4:
-                    _priceOfProduct = 20000;
-                    _totalAmount = _priceOfProduct * _quantity;
-                    Console.WriteLine("Price of Product : #{0}\n", _priceOfProduct);
-                    Console.WriteLine("Quantity : {0}\n", _quantity);
-                    Console.WriteLine("Total Amount : #{0}\n ", _totalAmount);
-                    Console.WriteLine(" Choose an installment Plan of your Choice.\n Our installment plans are: ");
-
-                    installmentPlans();
-                    break;
-
-                case 5:
-                    Console.WriteLine("Sorry, the item you want is not in our store. See you next time!");
-                    break;
-
-                default:
-                    Console.WriteLine("Please, Enter the correct Item Number!");
-                    break;
-            }
-            }
-            catch (Exception e) 
-            {
-                Console.WriteLine(e.Message);
-                AppStart();
-            }
-        }
-
-
-        public void installmentPlans()
-        {
-            try
-            {
-                Console.WriteLine(" 1. Daily ........... 5% payment.\n " +
-                    "2. Weekly ........... 6% payment.\n " +
-                    "3. Bi-Weekly ........... 7% payment.\n " +
-                    "4. Monthly ........... 8% payment.\n " +
-                    "5. 6-Months ........... 9% payment.\n " +
-                    "6. One-Year ........... 10% payment.\n");
-                _installationPlan = Convert.ToInt32(Console.ReadLine());
-
-                switch (_installationPlan)
-                {
-                    case 1:
-                        Console.Clear();
-                        daily();
-                        break;
-                    case 2:
-                        weekly();
-                        break;
-                    case 3:
-                        biWeekly();
-                        break;
-                    case 4:
-                        monthly();
-                        break;
-                    case 5:
-                        sixMonths();
-                        break;
-                    default:
-                        yearly();
-                        break;
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                installmentPlans();
-            }
-        }
-
-        public void daily()
-        {
-            try
-            {
-
-                Console.WriteLine("You choosed Daily installment plan!\n");
-                Console.WriteLine("Press any key to continue...");
-
-                Console.ReadKey();
-                Console.Clear();
-                Console.WriteLine("You are expected to pay 5% of {0} daily.\n", _totalAmount);
-
-
-                _date = DateTime.Now;
-                Console.WriteLine("Installment payment will start on {0}\n\n", _date.ToLongDateString());
-
-
-                _payment = (percent1 * _totalAmount);
-
-
-                Console.WriteLine(".......Track of Installment Records.......\n");
-
-
-
-                for (double i = _payment; i <= _totalAmount; i += _payment)
-                {
-                    Console.WriteLine("{0} will pay #{1} on {2}, Total: #{3}\n ", buyerName, _payment, _date.ToLongDateString(), i);
-                    _date = _date.AddDays(1);
-                }
-
-                Console.WriteLine("The End!");
-
-
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                daily();
-            }
+            Console.WriteLine("The End!");
 
         }
-
-        public void weekly()
+        catch (Exception e)
         {
-            try
-            {
-
-                Console.WriteLine("You choosed Weekly installment plan!\n");
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
-                Console.Clear();
-                Console.WriteLine("You are expected to pay 6% of {0} weekly.\n", _totalAmount);
-
-                _date = DateTime.Now;
-                Console.WriteLine("Installment payment will start on {0}\n\n", _date.ToLongDateString());
-
-
-                _payment = (percent2 * _totalAmount);
-
-
-                Console.WriteLine(".......Track of Installment Records.......\n");
-
-
-
-                for (double i = _payment; i <= _totalAmount; i += _payment)
-                {
-                    Console.WriteLine("{0} will pay #{1} on {2}, Total: #{3} \n", buyerName, _payment, _date.ToLongDateString(), i);
-                    _date = _date.AddDays(7);
-                }
-
-                Console.WriteLine("The End!");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                weekly();
-            }
-
-        }
-
-        public void biWeekly()
-        {
-            try
-            {
-
-                Console.WriteLine("You choosed bi-weekly installment plan!\n");
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
-                Console.Clear();
-                Console.WriteLine("You are expected to pay 7% of {0} bi-weekly.\n", _totalAmount);
-
-                _date = DateTime.Now;
-                Console.WriteLine("Installment payment will start on {0}\n\n", _date.ToLongDateString());
-
-
-                _payment = (percent3 * _totalAmount);
-
-
-
-                Console.WriteLine(".......Track of Installment Records.......\n");
-
-
-                for (double i = _payment; i <= _totalAmount; i += _payment)
-                {
-                    Console.WriteLine("{0} will pay #{1} on {2}, Total: #{3} \n", buyerName, _payment, _date.ToLongDateString(), i);
-                    _date = _date.AddDays(14);
-                }
-
-                Console.WriteLine("The End!");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                biWeekly();
-            }
-        }
-
-        public void monthly()
-        {
-            try
-            {
-
-                Console.WriteLine("You choosed monthly installment plan!\n");
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
-                Console.Clear();
-                Console.WriteLine("You are expected to pay 8% of {0} monthly.\n", _totalAmount);
-
-                _date = DateTime.Now;
-                Console.WriteLine("Installment payment will start on {0}\n\n", _date.ToLongDateString());
-
-
-                _payment = (percent4 * _totalAmount);
-
-                Console.WriteLine(".......Track of Installment Records.......\n");
-
-
-                for (double i = _payment; i <= _totalAmount; i += _payment)
-                {
-                    Console.WriteLine("{0} is expected to pay #{1} on {2}," +
-                        " Total: #{3} \n", buyerName, _payment, _date.ToLongDateString(), i);
-                    _date = _date.AddMonths(1);
-                }
-
-
-                Console.WriteLine("The End!");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                monthly();
-            }
-        }
-
-        public void sixMonths()
-        {
-            try
-            {
-
-                Console.WriteLine("You choosed six months installment plan!\n");
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
-                Console.Clear();
-                Console.WriteLine("You are expected to pay 9% of {0} every six months.\n", _totalAmount);
-
-                _date = DateTime.Now;
-                Console.WriteLine("Installment payment will start on {0}\n\n", _date.ToLongDateString());
-
-
-                _payment = (percent5 * _totalAmount);
-
-                Console.WriteLine(".......Track of Installment Records.......\n");
-
-
-
-                for (double i = _payment; i <= _totalAmount; i += _payment)
-                {
-                    Console.WriteLine("{0} is expected to pay #{1} on {2}," +
-                        " Total: #{3} \n", buyerName, _payment, _date.ToLongDateString(), i);
-                    _date = _date.AddMonths(6);
-                }
-
-
-                Console.WriteLine("The End!");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                sixMonths();
-            }
-        }
-
-        public void yearly()
-        {
-            try
-            {
-
-                Console.WriteLine("You choosed one year installment plan!\n");
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
-                Console.Clear();
-                Console.WriteLine("You are expected to pay 10% of {0} yearly.\n", _totalAmount);
-
-                _date = DateTime.Now;
-                Console.WriteLine("Installment payment will start on {0}\n\n", _date.ToLongDateString());
-
-
-                _payment = (percent6 * _totalAmount);
-
-                Console.WriteLine(".......Track of Installment Records.......\n");
-
-                for (double i = _payment; i <= _totalAmount; i += _payment)
-                {
-                    Console.WriteLine("{0} is expected to pay #{1} on {2}, Total: #{3} \n", buyerName, _payment, _date.ToLongDateString(), i);
-                    _date = _date.AddYears(1);
-                }
-
-
-                Console.WriteLine("The End!");
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                yearly();
-            }
+            Console.WriteLine(e.Message);
+            daily();
         }
 
     }
+
+    public void weekly()
+    {
+        try
+        {
+
+            Console.WriteLine("You choosed Weekly installment plan!\nPress any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine($"You are expected to pay 6% of {_totalAmount} weekly.\n");
+
+            _date = DateTime.Now;
+            Console.WriteLine($"Installment payment will start on {_date.ToLongDateString()}\n\n");
+
+
+            _payment = (percent2 * _totalAmount);
+
+
+            Console.WriteLine(".......Track of Installment Records.......\n");
+
+
+            for (double i = _payment; i <= _totalAmount; i += _payment)
+            {
+                Console.WriteLine($"{buyerName} will pay #{_payment} on {_date.ToLongDateString()}, Total: #{i} \n");
+                _date = _date.AddDays(7);
+            }
+
+            Console.WriteLine("The End!");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            weekly();
+        }
+
+    }
+
+    public void biWeekly()
+    {
+        try
+        {
+
+            Console.WriteLine("You choosed bi-weekly installment plan!\nPress any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine($"You are expected to pay 7% of {_totalAmount} bi-weekly.\n");
+
+            _date = DateTime.Now;
+            Console.WriteLine($"Installment payment will start on {_date.ToLongDateString()}\n\n");
+
+
+            _payment = (percent3 * _totalAmount);
+
+            Console.WriteLine(".......Track of Installment Records.......\n");
+
+
+            for (double i = _payment; i <= _totalAmount; i += _payment)
+            {
+                Console.WriteLine($"{buyerName} will pay #{_payment} on {_date.ToLongDateString()}, Total: #{i} \n");
+                _date = _date.AddDays(14);
+            }
+
+            Console.WriteLine("The End!");
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            biWeekly();
+        }
+    }
+
+    public void monthly()
+    {
+        try
+        {
+
+            Console.WriteLine("You choosed monthly installment plan!\nPress any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine($"You are expected to pay 8% of { _totalAmount} monthly.\n");
+
+            _date = DateTime.Now;
+            Console.WriteLine($"Installment payment will start on {_date.ToLongDateString()}\n\n");
+
+            _payment = (percent4 * _totalAmount);
+
+            Console.WriteLine(".......Track of Installment Records.......\n");
+
+
+            for (double i = _payment; i <= _totalAmount; i += _payment)
+            {
+                Console.WriteLine($"{buyerName} is expected to pay #{_payment} on {_date.ToLongDateString()}," +
+                    $" Total: #{i} \n");
+                _date = _date.AddMonths(1);
+            }
+
+
+            Console.WriteLine("The End!");
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            monthly();
+        }
+    }
+
+    public void sixMonths()
+    {
+        try
+        {
+
+            Console.WriteLine("You choosed six months installment plan!\nPress any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine($"You are expected to pay 9% of {_totalAmount} every six months.\n");
+
+            _date = DateTime.Now;
+            Console.WriteLine($"Installment payment will start on {_date.ToLongDateString()}\n\n");
+
+
+            _payment = (percent5 * _totalAmount);
+
+            Console.WriteLine(".......Track of Installment Records.......\n");
+
+
+            for (double i = _payment; i <= _totalAmount; i += _payment)
+            {
+                Console.WriteLine($"{buyerName} is expected to pay #{_payment} on {_date.ToLongDateString()}," +
+                    $" Total: #{i} \n");
+                _date = _date.AddMonths(6);
+            }
+
+
+            Console.WriteLine("The End!");
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            sixMonths();
+        }
+    }
+
+    public void yearly()
+    {
+        try
+        {
+
+            Console.WriteLine("You choosed one year installment plan!\nPress any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine($"You are expected to pay 10% of {_totalAmount} yearly.\n");
+
+            _date = DateTime.Now;
+            Console.WriteLine($"Installment payment will start on {_date.ToLongDateString()}\n\n");
+
+
+            _payment = (percent6 * _totalAmount);
+
+            Console.WriteLine(".......Track of Installment Records.......\n");
+
+            for (double i = _payment; i <= _totalAmount; i += _payment)
+            {
+                Console.WriteLine($"{buyerName} is expected to pay #{_payment} on {_date.ToLongDateString()}, Total: #{i} \n");
+                _date = _date.AddYears(1);
+            }
+
+            Console.WriteLine("The End!");
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            yearly();
+        }
+    }
+
 }
